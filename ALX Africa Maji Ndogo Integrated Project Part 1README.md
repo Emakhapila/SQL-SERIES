@@ -10,15 +10,15 @@ created a strong data governance structure for future reporting.
 The Republic of Maji Ndogo was facing a critical challenge: a lack of clarity regarding the true state of water access and quality on the ground. 
 This necessitated a deep dive into five core problem areas, which defined the scope of this analysis:
 
-1. Geographic Disparity: Quantify the imbalance of water source types and distribution across provinces and towns to identify underserved populations.
+1.1 Geographic Disparity: Quantify the imbalance of water source types and distribution across provinces and towns to identify underserved populations.
 
-2. Public Health Risk: Pinpoint the exact locations and scale of well contamination to drive immediate remediation efforts.
+1.2. Public Health Risk: Pinpoint the exact locations and scale of well contamination to drive immediate remediation efforts.
 
-3. Operational Inefficiency: Diagnose and rank the worst-performing water points by measuring queue times (bottlenecks) to inform infrastructure investment.
+1.3. Operational Inefficiency: Diagnose and rank the worst-performing water points by measuring queue times (bottlenecks) to inform infrastructure investment.
 
-4. Data Reliability & Governance: Establish a clean, standardized single source of truth from the raw survey data to ensure repeatable, reliable reporting.
+1.4. Data Reliability & Governance: Establish a clean, standardized single source of truth from the raw survey data to ensure repeatable, reliable reporting.
 
-5. Workforce Optimization: Evaluate field surveyor coverage and activity rates to ensure maximum geographical reach and efficient deployment of personnel.
+1.5. Workforce Optimization: Evaluate field surveyor coverage and activity rates to ensure maximum geographical reach and efficient deployment of personnel.
 
 2. SOLUTION & METHODOLOGY
 From data preparation to high-value insights, my methodology was designed to guarantee data quality and analytical rigor.
