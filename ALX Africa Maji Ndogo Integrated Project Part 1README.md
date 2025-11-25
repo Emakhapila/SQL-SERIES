@@ -9,6 +9,7 @@ The analysis produced specific, top-priority suggestions to improve the dependab
 created a strong data governance structure for future reporting.
 
 1. STRATEGIC CHALLENGE
+   
 The Republic of Maji Ndogo was facing a critical challenge: a lack of clarity regarding the true state of water access and quality on the ground. 
 This necessitated a deep dive into five core problem areas, which defined the scope of this analysis:
 
@@ -23,6 +24,7 @@ This necessitated a deep dive into five core problem areas, which defined the sc
 1.5. Workforce Optimization: Evaluate field surveyor coverage and activity rates to ensure maximum geographical reach and efficient deployment of personnel.
 
 2. SOLUTION & METHODOLOGY
+
 From data preparation to high-value insights, my methodology was designed to guarantee data quality and analytical rigor.
 Phase 1: Data Governance & Cleansing
 I prioritized creating a reliable foundation for all subsequent analysis:
@@ -31,7 +33,7 @@ View-Based Cleansing: Implemented analytical views (clean_location, clean_water_
 
 High-Risk Data Remediation: Executed a critical data-fix for the well_pollution table. Discovered and corrected inconsistencies where wells were erroneously classified as "Clean" despite containing biological contaminants (e.g., E. coli). This involved a safe-update workflow using a temporary copy table before committing the fixes.
 
-Geographic Standardization: Applied string functions (UPPER(), TRIM()) to standardize all town and province names for consistent cross-referencing.
+Geographic Standardization: Applied string functions to standardize all town and province names for consistent cross-referencing.
 
 Phase 2: Advanced Relational Analysis
 I integrated the disparate datasets using intricate joins to create a thorough analytical model:
@@ -41,6 +43,8 @@ Location Mapping: To precisely link each water source event to its exact town an
 KPI Calculation: To effectively compute and compare performance indicators like average queue times and surveyor visit frequency, Window Functions (expected for ranking/cumulative analysis) and CTEs (Common Table Expressions) were used.
 
 3. KEY FINDINGS & ACTIONABLE INSIGHTS/STRATEGIC RECOMMENDATIONS
+
+   
 The analysis yielded precise data points that directly inform strategic decision-making and resource deployment.
 3.1 Insight Areas & Key Findings 
  Key Findings
