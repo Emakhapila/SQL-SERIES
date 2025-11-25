@@ -1,4 +1,6 @@
 EXECUTIVE SUMMARY
+
+
 A comprehensive, data-driven evaluation of the Republic of Maji Ndogo's water infrastructure and operational effectiveness was part of this engagement. 
 The main goal was to give the MD Water Services board practical insights to maximize resource allocation, reduce public health hazards (pollution), 
 and expedite service delivery times by utilizing sophisticated SQL analytics against extensive survey data.
