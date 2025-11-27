@@ -11,55 +11,116 @@ by utilizing sophisticated SQL analytics against extensive, multi-table survey d
 A clear, phased repair strategy centered on improving high-impact water sources and resolving crucial operational bottlenecks was provided by the analysis, 
 which also developed a strong data governance framework.
 
-1. The Strategic Challenge: Quantifying Water Scarcity
+## Business Problem
 
-High-impact operational failure spots and significant service delivery gaps were concealed by complicated, inconsistent data, which presented a fundamental issue for MD Water Services. 
-The need to measure the issue and offer a precise plan of action motivated my analysis.
+Access to clean, reliable water remains a critical challenge in Maji Ndogo.  
+Government stakeholders require a **data-driven assessment** to identify:
+- Areas with inadequate infrastructure
+- Sources vulnerable to contamination
+- Regions under population stress
+- Queue time bottlenecks
+- Opportunities for targeted interventions
 
-Critical Key Performance Indicators (KPIs) in Crisis:
+---
 
-KPI Metric,Analysis Result,UN Standard (Target),Gap Analysis
-Average Queue Time,> 120 minutes,30 minutes,"4x over the maximum acceptable wait time, indicating severe operational failure and social cost."
-Contamination Rate (Wells),Only 28% of wells are clean.,100%,Critical public health risk.
-Non-Functional Home Systems,45% of internal infrastructure is broken.,< 5%,High-impact failure point that exacerbates public queues.
+## Analytical Approach
 
-2. Key Findings & Diagnostic Insights (SQL Analysis)
+Using SQL, the project:
+- Standardized and cleaned survey data
+- Assessed water source distribution by type, town, and province
+- Evaluated contamination patterns across source types
+- Measured population reliance on shared infrastructure
+- Analyzed queue times by day and time
+- Reviewed survey coverage and employee performance
 
-The initial SQL analysis (data cleaning, joins, aggregations) established the geographical and operational landscape:
+---
 
-A. Infrastructure & Dependency
+## Key Findings
 
-High Shared Dependency: 44% of the population relies on shared communal taps, with an average of 2,000 users per tap. 
-This infrastructure is dangerously over-stressed and represents the highest priority for intervention.
+### 1. Water Source Distribution
 
-Decentralized Service: The majority of water sources are located in rural areas, which introduces significant logistical 
-complexity regarding road conditions, supply chains, and labor for maintenance and deployment.
+- **Total sources**: 39,650
+- **Most common type**: Wells (17,383), but shared taps serve the largest population (~40M).
+- **Provincial disparities**: Kilimani leads in source availability (15,271), while Hawassa lags (8,844).
+- **Town-level**: Rural areas dominate in both number of sources and population served.
 
-B. Health & Quality
+### 2. Water Quality
 
-Contamination Crisis: 72% of wells are contaminated. This 18% of the population is exposed to critical health risks, 
-necessitating immediate purification and long-term source investigation.
+- **Contamination risks**: Shared taps and rivers show the highest vulnerability to coliform and E. coli.
+- **Wells**: Only 28% are clean; majority require filtration or remediation.
 
-C. Operational Bottlenecks
+### 3. Queue Times
 
-Severe Time Cost: The average citizen spends over two hours (120+ minutes) waiting for water. The longest queues occur predictably on Saturdays and during morning/evening peak hours.
+- Citizens face **average wait times > 120 minutes**.
+- **Peak queues**: Saturdays, mornings, and evenings.
+- **Shortest queues**: Wednesdays and Sundays.
+- UN standards recommend < 30 minutes — Maji Ndogo exceeds this by 4x.
 
-Hidden Capacity: Fixing existing, non-functional infrastructure (pipes, pumps, reservoirs) for the 31% of 
-the population with home systems represents a double-impact opportunity: restoring supply to homes and dramatically reducing pressure on communal queues.
+### 4. Infrastructure Reliability
 
-3. Remediation Strategy & Phased Intervention
+- 31% of citizens have taps at home, but **45% of these systems are non-functional** due to broken pipes, pumps, and reservoirs.
+- Shared taps are overcrowded, with **~2000 people per tap** on average.
 
-A clear, prioritized focus on high-impact, economical treatments was required by the findings. 
-The approach addresses the severe pollution concerns while focusing on the largest number of beneficiaries.
+### 5. Workforce & Coverage
 
-Priority,Focus Area,Short-Term Action (High Impact),Long-Term Solution (Sustainable)
-1 (Highest),Shared Taps (44% of Pop.),Deploy temporary water tankers to the busiest taps during peak hours (identified by queue time pivot tables).,Install extra taps where queue times exceed the 30-minute standard.
-2 (Health),Contaminated Wells (72% Failure Rate),Install UV filters (for biological contamination) and Reverse Osmosis filters (for other pollutants) at the source.,Investigate the root causes of long-term well pollution.
-3 (Efficiency),Broken Home Infrastructure (45% Failure),"Prioritize repairing common points of failure (reservoirs, main pipes) that serve multiple taps and homes.",Establish a routine maintenance schedule to prevent reoccurrence.
-4 (Logistics),River Sources (Temporary Solution),"Dispatch water trucks to provide immediate, safe water to river-dependent communities.",Begin the process of drilling permanent wells in these same regions.
+- Rural areas are well-documented, ensuring reliable data integrity.
+- Top-performing surveyors contributed thousands of visits, enabling robust analysis.
 
+---
 
-4. Technical Governance & Methodology
+## Strategic Recommendations
+
+### Priority Actions
+
+1. **Shared Taps**  
+   - Short-term: Deploy water tankers to busiest taps at peak times.  
+   - Medium-term: Install additional taps to reduce queues.
+   - Long-term: Transition toward household taps where feasible.
+
+2. **Wells**  
+   - Install **UV filters** for biological contamination.  
+   - Use **reverse osmosis filters** for polluted wells.  
+   - Investigate root causes of pollution for sustainable solutions.
+
+3. **Broken Infrastructure**  
+   - Repair reservoirs and pipes to restore multiple taps at once.  
+   - High-cost but high-impact interventions.
+
+4. **Rivers**
+  
+   - Short-term: Dispatch water trucks.  
+   - Long-term: Drill wells to replace unsafe river reliance.
+
+### Operational Considerations
+
+- **Rural focus**: 60% of sources are rural, requiring logistical planning for road access, supplies, and labor.  
+- **Queue management**: Aim to reduce wait times below **30 minutes**, aligning with UN standards.  
+- **Resource allocation**: Prioritize interventions that benefit the largest populations first.
+
+---
+
+## Skills Demonstrated
+
+- SQL schema creation & cleaning
+- Aggregations & GROUP BY
+- JOINs across multiple tables
+- Queue time analysis with pivot-style queries
+- Insight generation & business storytelling
+- Translating technical results into strategic recommendations
+
+---
+
+## Example Query
+```sql
+-- Queue time analysis by day of week
+SELECT DAYNAME(visit_time) AS day,
+       AVG(TIMESTAMPDIFF(MINUTE, start_time, end_time)) AS avg_queue_minutes
+FROM visits
+GROUP BY day
+ORDER BY avg_queue_minutes DESC;
+
+Technical Governance & Methodology
+
 This project is a demonstrator of robust SQL data preparation and analytical modeling, designed for seamless deployment and auditing.
 
 Technical Approach
